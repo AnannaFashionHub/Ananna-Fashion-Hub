@@ -1,0 +1,299 @@
+[index.html](https://github.com/user-attachments/files/31735763/index.html)
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ananna Fashion Hub | Style for Every You, Gifts for Every Occasion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8F3;
+    --cream-deep:#FBEDE7;
+    --blush:#F3D6D9;
+    --blush-deep:#E9B9BF;
+    --maroon:#7C1B3A;
+    --maroon-deep:#59122A;
+    --gold:#B98A2E;
+    --ink:#3A2A2E;
+    --muted:#7A6265;
+    --line:rgba(58,42,46,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Hind Siliguri', sans-serif; line-height:1.7;
+  }
+  h1,h2,h3{font-family:'Tiro Bangla', serif; font-weight:400; color:var(--maroon-deep); margin:0;}
+  .en{font-family:'Playfair Display', serif; font-style:italic; font-weight:500;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(255,248,243,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 24px; max-width:1120px; margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo img{width:46px; height:46px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 2px var(--gold);}
+  .logo-text{font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--maroon-deep); line-height:1.15;}
+  .logo-text span{display:block; font-family:'Hind Siliguri',sans-serif; font-size:0.68rem; font-weight:500; color:var(--muted); letter-spacing:0.02em;}
+  .nav-links{display:flex; gap:30px; font-size:0.96rem; font-weight:500;}
+  .nav-links a{position:relative; padding:4px 0;}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--gold); transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{background:var(--maroon); color:#fff; padding:10px 22px; border-radius:24px; font-weight:600; font-size:0.9rem; white-space:nowrap;}
+  .nav-cta:hover{background:var(--maroon-deep);}
+
+  .hero-banner{width:100%; max-height:420px; overflow:hidden;}
+  .hero-banner img{width:100%; height:100%; object-fit:cover; object-position:center 35%;}
+
+  .hero-sub{padding:56px 24px 64px; text-align:center; max-width:720px; margin:0 auto;}
+  .hero-sub h1{font-size:clamp(1.9rem,3.6vw,2.6rem); line-height:1.4; margin-bottom:18px;}
+  .hero-sub p{color:var(--muted); font-size:1.05rem; margin-bottom:30px;}
+  .hero-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:14px 30px; font-weight:600; font-size:0.96rem; border-radius:24px; transition:transform .2s ease, background .2s ease;}
+  .btn-primary{background:var(--maroon); color:#fff;}
+  .btn-primary:hover{background:var(--maroon-deep); transform:translateY(-1px);}
+  .btn-outline{border:1.5px solid var(--maroon); color:var(--maroon-deep);}
+  .btn-outline:hover{background:var(--maroon); color:#fff;}
+
+  .categories{background:var(--cream-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  .cat-card{padding:44px 20px; text-align:center; border-left:1px solid var(--line);}
+  .cat-card:first-child{border-left:none;}
+  .cat-icon{width:52px; height:52px; margin:0 auto 18px; color:var(--maroon);}
+  .cat-card h3{font-size:1.1rem; font-family:'Hind Siliguri',sans-serif; font-weight:600; color:var(--maroon-deep); margin-bottom:6px;}
+  .cat-card span{font-size:0.86rem; color:var(--muted);}
+
+  section{padding:84px 0;}
+  .section-head{max-width:60ch; margin:0 auto 48px; text-align:center;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.2rem); line-height:1.4;}
+  .section-head p{color:var(--muted); margin-top:14px; font-size:1rem;}
+
+  .product-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .product-card{border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff;}
+  .swatch{aspect-ratio:4/5; position:relative;}
+  .p1{background:linear-gradient(150deg,#E9B9BF,#B9707D);}
+  .p2{background:linear-gradient(150deg,#7C1B3A,#3f0f1f);}
+  .p3{background:linear-gradient(150deg,#B98A2E,#7a5a1a);}
+  .p4{background:linear-gradient(150deg,#F3D6D9,#c98d95);}
+  .swatch::before{
+    content:''; position:absolute; inset:0;
+    background-image: radial-gradient(circle at 22% 28%, rgba(255,255,255,0.16) 0 3px, transparent 4px),
+                       radial-gradient(circle at 62% 68%, rgba(255,255,255,0.12) 0 3px, transparent 4px),
+                       radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12) 0 2px, transparent 3px);
+    background-size:36px 36px;
+  }
+  .swatch .sample-tag{position:absolute; top:12px; left:12px; background:rgba(0,0,0,0.35); color:#fff; font-size:0.7rem; padding:4px 10px; border-radius:20px;}
+  .product-info{padding:16px 18px 20px;}
+  .product-info h4{font-family:'Hind Siliguri',sans-serif; font-weight:600; font-size:1.02rem; color:var(--maroon-deep); margin:0 0 6px;}
+  .product-info .price{color:var(--gold); font-weight:600; margin-bottom:12px; font-size:0.95rem;}
+  .order-link{display:inline-block; font-size:0.88rem; font-weight:600; color:var(--maroon); border-bottom:1.5px solid var(--gold); padding-bottom:2px;}
+  .order-link:hover{color:var(--maroon-deep);}
+  .placeholder-note{margin-top:32px; padding:16px 20px; background:var(--cream-deep); border-left:3px solid var(--gold); font-size:0.92rem; color:var(--muted); border-radius:6px;}
+
+  .trust{background:var(--maroon-deep); color:#fff;}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+  .trust-item{padding:0 12px;}
+  .trust-item .mark{width:30px; height:2px; background:var(--gold); margin:0 auto 14px;}
+  .trust-item h4{font-family:'Playfair Display',serif; font-style:italic; font-weight:500; font-size:1.08rem; margin-bottom:6px; color:#fff;}
+  .trust-item p{font-size:0.85rem; color:#e6cdd4; margin:0;}
+  .trust-tagline{text-align:center; margin-top:44px; font-family:'Playfair Display',serif; font-style:italic; color:var(--gold); font-size:1.1rem;}
+
+  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .step{padding-top:20px; border-top:2px solid var(--line);}
+  .step .num{font-family:'Tiro Bangla',serif; font-size:2.2rem; color:var(--gold); display:block; margin-bottom:10px;}
+  .step h4{font-size:1.02rem; margin-bottom:8px; color:var(--maroon-deep); font-weight:600;}
+  .step p{font-size:0.9rem; color:var(--muted);}
+
+  footer{background:var(--ink); color:#e8dfd3; padding:52px 0 26px;}
+  .footer-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; margin-bottom:36px;}
+  .footer-brand{display:flex; align-items:center; gap:12px; margin-bottom:14px;}
+  .footer-brand img{width:42px; height:42px; border-radius:50%; object-fit:cover;}
+  .footer-brand span{font-family:'Playfair Display',serif; font-size:1.2rem; color:#fff;}
+  footer p{font-size:0.9rem; color:#b8a9ab;}
+  footer h5{color:#fff; font-size:0.92rem; margin-bottom:14px; font-weight:600;}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+  footer a{font-size:0.9rem; color:#b8a9ab;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; font-size:0.82rem; color:#8a7b7d; text-align:center;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .cat-card{border-left:none; border-bottom:1px solid var(--line);}
+    .product-grid{grid-template-columns:1fr 1fr;}
+    .trust-grid, .process-grid, .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <img src="images/logo.jpg" alt="Ananna Fashion Hub logo">
+      <div class="logo-text">Ananna Fashion Hub<span>Style for Every You</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#products">প্রোডাক্ট</a>
+      <a href="#categories">ক্যাটাগরি</a>
+      <a href="#order">অর্ডার প্রক্রিয়া</a>
+      <a href="#contact">যোগাযোগ</a>
+    </div>
+    <a href="#contact" class="nav-cta">অর্ডার করুন</a>
+  </nav>
+</header>
+
+<div class="hero-banner">
+  <img src="images/cover.jpg" alt="Ananna Fashion Hub — Style for Every You, Gifts for Every Occasion">
+</div>
+
+<div class="hero-sub">
+  <h1>ব্যাগ, পোশাক, গয়না আর উপহার — সবকিছু একসাথে অনন্না ফ্যাশন হাবে</h1>
+  <p>প্রতিটি পণ্য বাছাই করা হয় মান, স্টাইল আর আপনার প্রতিটি বিশেষ মুহূর্তের কথা ভেবে।</p>
+  <div class="hero-actions">
+    <a href="#products" class="btn btn-primary">প্রোডাক্ট দেখুন</a>
+    <a href="https://www.facebook.com/share/18ybRLoJZt/" target="_blank" rel="noopener" class="btn btn-outline">ফেসবুক পেজে যান</a>
+  </div>
+</div>
+
+<section class="categories" id="categories">
+  <div class="wrap">
+    <div class="cat-grid">
+      <a href="#products" class="cat-card">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <h3>ব্যাগ</h3>
+        <span>Trendy · Elegant · Stylish</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 4l3 2 3-2 3 4-2 2v10H8V10L6 8l3-4z"/></svg>
+        <h3>লেডিস ড্রেস</h3>
+        <span>Chic · Comfortable · Graceful</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="9" r="4"/><path d="M8 13l-2 7M16 13l2 7M12 13v7"/></svg>
+        <h3>জুয়েলারি</h3>
+        <span>Sparkle · Shine · Timeless</span>
+      </a>
+      <a href="#products" class="cat-card">
+        <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="10" width="16" height="10" rx="1"/><path d="M4 10h16M12 10v10M8 10c0-3 1-6 4-6s4 3 4 6"/></svg>
+        <h3>গিফট আইটেম</h3>
+        <span>Thoughtful · Unique · Special</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>জনপ্রিয় সংগ্রহ থেকে বাছাই করা</h2>
+      <p>নিচের প্রতিটি প্রোডাক্টের ছবি, নাম ও দাম শুধু নমুনা — আসল প্রোডাক্টের ছবি ও তথ্য পাঠালে বসিয়ে দেওয়া হবে।</p>
+    </div>
+    <div class="product-grid" id="product-grid">
+      <!-- প্রোডাক্ট এখানে অটোমেটিক লোড হবে data/products.json থেকে -->
+    </div>
+    <div class="placeholder-note" id="placeholder-note">দ্রষ্টব্য: প্রোডাক্টের তথ্য লোড হচ্ছে...</div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item"><div class="mark"></div><h4>Premium Quality</h4><p>বাছাই করা মানসম্পন্ন পণ্য</p></div>
+      <div class="trust-item"><div class="mark"></div><h4>Trendy Collection</h4><p>সবসময় হালনাগাদ কালেকশন</p></div>
+      <div class="trust-item"><div class="mark"></div><h4>Fast & Reliable Delivery</h4><p>সারাদেশে দ্রুত ডেলিভারি</p></div>
+      <div class="trust-item"><div class="mark"></div><h4>Made With Love</h4><p>যত্নের সাথে গোছানো প্রতিটি অর্ডার</p></div>
+    </div>
+    <div class="trust-tagline">Because You Deserve The Best</div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>যেভাবে অর্ডার করবেন</h2>
+      <p>মাত্র চারটি ধাপে আপনার পছন্দের প্রোডাক্ট হাতে পাবেন।</p>
+    </div>
+    <div class="process-grid">
+      <div class="step"><span class="num">১</span><h4>প্রোডাক্ট পছন্দ করুন</h4><p>উপরের সংগ্রহ থেকে অথবা ফেসবুক পেজ থেকে পছন্দের আইটেম বেছে নিন।</p></div>
+      <div class="step"><span class="num">২</span><h4>মেসেজ পাঠান</h4><p>প্রোডাক্টের নাম ও পছন্দ উল্লেখ করে ইনবক্স অথবা হোয়াটসঅ্যাপে জানান।</p></div>
+      <div class="step"><span class="num">৩</span><h4>ঠিকানা ও পেমেন্ট নিশ্চিত করুন</h4><p>ডেলিভারি ঠিকানা দিন এবং অগ্রিম বা ক্যাশ অন ডেলিভারি বেছে নিন।</p></div>
+      <div class="step"><span class="num">৪</span><h4>ডেলিভারি পান</h4><p>নির্ধারিত সময়ের মধ্যে কুরিয়ারের মাধ্যমে পণ্য হাতে পৌঁছে যাবে।</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="images/logo.jpg" alt="Ananna Fashion Hub logo"><span>Ananna Fashion Hub</span></div>
+        <p>Style for Every You, Gifts for Every Occasion — ব্যাগ, পোশাক, গয়না ও উপহারের বিশ্বস্ত অনলাইন ঠিকানা।</p>
+      </div>
+      <div>
+        <h5>যোগাযোগ</h5>
+        <ul>
+          <li><a href="https://www.facebook.com/share/18ybRLoJZt/" target="_blank" rel="noopener">ফেসবুক পেজ ভিজিট করুন</a></li>
+          <li><a href="#">হোয়াটসঅ্যাপ নম্বর (এখানে বসবে)</a></li>
+          <li><a href="#">ইমেইল (এখানে বসবে)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>কুইক লিঙ্ক</h5>
+        <ul>
+          <li><a href="#products">প্রোডাক্ট</a></li>
+          <li><a href="#categories">ক্যাটাগরি</a></li>
+          <li><a href="#order">অর্ডার প্রক্রিয়া</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© ২০২৬ Ananna Fashion Hub। সর্বস্বত্ব সংরক্ষিত।</div>
+  </div>
+</footer>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+<script>
+  fetch('data/products.json')
+    .then(res => res.json())
+    .then(data => {
+      const grid = document.getElementById('product-grid');
+      const note = document.getElementById('placeholder-note');
+      grid.innerHTML = '';
+      data.items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        const imgHtml = item.image
+          ? `<div class="swatch" style="background-image:url('${item.image}');background-size:cover;background-position:center;"></div>`
+          : `<div class="swatch ${item.color || 'p1'}"><span class="sample-tag">নমুনা</span></div>`;
+        card.innerHTML = `
+          ${imgHtml}
+          <div class="product-info">
+            <h4>${item.name}</h4>
+            <div class="price">${item.price}</div>
+            <a href="#contact" class="order-link">অর্ডার করুন →</a>
+          </div>`;
+        grid.appendChild(card);
+      });
+      note.textContent = data.note || 'দ্রষ্টব্য: আসল প্রোডাক্টের ছবি, নাম, দাম ও বিবরণ যোগ করতে "প্রোডাক্ট" মেনু (admin) ব্যবহার করুন।';
+    })
+    .catch(() => {
+      document.getElementById('placeholder-note').textContent = 'প্রোডাক্ট তথ্য লোড করা যায়নি।';
+    });
+</script>
+</body>
+</html>
